@@ -19,7 +19,7 @@
     [self.ds.columnDefinitions addObject:colDef];
     
     colDef = [[IGGridViewColumnDefinition alloc] initWithKey:@"symbolName"];
-    colDef.headerText = @"Symbol Name";
+    colDef.headerText = @"Name";
     [self.ds.columnDefinitions addObject:colDef];
     
     colDef = [[IGGridViewColumnDefinition alloc] initWithKey:@"ask"];
