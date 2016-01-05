@@ -1,0 +1,23 @@
+# This file is managed by Chef!
+# Override node.default["git_pairs_authors"] and node.default["git_pairs_domain"] in attributes/git_pairs.rb to modify.
+
+pairs:
+  mb: Mike Beard; michael.beard@tdameritrade.com
+  db: Danny Bolella; daniel.bolella@tdameritrade.com
+  av: Arun Venkatesh; arun.venkatesh@tdameritrade.com
+  ds: Dan Sanchez; daniel.sanchez@tdameritrade.com
+  dc: Danton Chin; danton.chin@tdameritrade.com
+  rb: Rich Ball; richard.ball@tdameritrade.com
+  hl: Handy Lukman; handy.lukman@tdameritrade.com
+  bs: Bryan Sampieri; bryan.sampieri@tdameritrade.com
+  gg: Gunjan Ghodawat; gunjan.ghodawat@tdameritrade.com
+  rc: Raymond Collins; raymond.collinsjr@tdameritrade.com
+  dj: Deepa Jain; deepa.jain@tdameritrade.com
+  kt: Kristen Tonga; kristen.tonga@tdameritrade.com
+
+
+email:
+  prefix: pair
+  domain: tdameritrade.com
+
+global: true
