@@ -19,6 +19,11 @@
 		D9B762451C3C68B500D6ED12 /* QuoteItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B762441C3C68B500D6ED12 /* QuoteItem.m */; };
 		D9B762481C3C6B5900D6ED12 /* QuoteItemDataMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B762471C3C6B5900D6ED12 /* QuoteItemDataMaker.m */; };
 		D9B7624A1C3C6BD000D6ED12 /* quotes.csv in Resources */ = {isa = PBXBuildFile; fileRef = D9B762491C3C6BD000D6ED12 /* quotes.csv */; };
+		D9E5461B1C3D77FA0037F119 /* CurrencyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E5461A1C3D77FA0037F119 /* CurrencyCell.m */; };
+		D9E5461E1C3D780C0037F119 /* SymbolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E5461D1C3D780C0037F119 /* SymbolCell.m */; };
+		D9E546221C3D78400037F119 /* SymbolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9E546211C3D78400037F119 /* SymbolCell.xib */; };
+		D9E546251C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E546241C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m */; };
+		D9E546281C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E546271C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,15 @@
 		D9B762461C3C6B5900D6ED12 /* QuoteItemDataMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteItemDataMaker.h; sourceTree = "<group>"; };
 		D9B762471C3C6B5900D6ED12 /* QuoteItemDataMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteItemDataMaker.m; sourceTree = "<group>"; };
 		D9B762491C3C6BD000D6ED12 /* quotes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = quotes.csv; sourceTree = "<group>"; };
+		D9E546191C3D77FA0037F119 /* CurrencyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyCell.h; sourceTree = "<group>"; };
+		D9E5461A1C3D77FA0037F119 /* CurrencyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyCell.m; sourceTree = "<group>"; };
+		D9E5461C1C3D780C0037F119 /* SymbolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolCell.h; sourceTree = "<group>"; };
+		D9E5461D1C3D780C0037F119 /* SymbolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolCell.m; sourceTree = "<group>"; };
+		D9E546211C3D78400037F119 /* SymbolCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SymbolCell.xib; sourceTree = "<group>"; };
+		D9E546231C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGGridViewCurrencyColumnDefinition.h; sourceTree = "<group>"; };
+		D9E546241C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGGridViewCurrencyColumnDefinition.m; sourceTree = "<group>"; };
+		D9E546261C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGGridViewSymbolColumnDefinition.h; sourceTree = "<group>"; };
+		D9E546271C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGGridViewSymbolColumnDefinition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +126,15 @@
 				D9B762441C3C68B500D6ED12 /* QuoteItem.m */,
 				D9B762461C3C6B5900D6ED12 /* QuoteItemDataMaker.h */,
 				D9B762471C3C6B5900D6ED12 /* QuoteItemDataMaker.m */,
+				D9E546191C3D77FA0037F119 /* CurrencyCell.h */,
+				D9E5461A1C3D77FA0037F119 /* CurrencyCell.m */,
+				D9E5461C1C3D780C0037F119 /* SymbolCell.h */,
+				D9E5461D1C3D780C0037F119 /* SymbolCell.m */,
+				D9E546211C3D78400037F119 /* SymbolCell.xib */,
+				D9E546231C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.h */,
+				D9E546241C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m */,
+				D9E546261C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.h */,
+				D9E546271C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.m */,
 			);
 			path = dgpoc;
 			sourceTree = "<group>";
@@ -217,6 +240,7 @@
 				D9B7624A1C3C6BD000D6ED12 /* quotes.csv in Resources */,
 				D955FC151C3C2C37000409FD /* Assets.xcassets in Resources */,
 				D955FC131C3C2C37000409FD /* Main.storyboard in Resources */,
+				D9E546221C3D78400037F119 /* SymbolCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,11 +259,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9B762481C3C6B5900D6ED12 /* QuoteItemDataMaker.m in Sources */,
+				D9E5461B1C3D77FA0037F119 /* CurrencyCell.m in Sources */,
 				D9B762451C3C68B500D6ED12 /* QuoteItem.m in Sources */,
 				D955FC101C3C2C37000409FD /* SecondViewController.m in Sources */,
 				D955FC0A1C3C2C37000409FD /* AppDelegate.m in Sources */,
+				D9E5461E1C3D780C0037F119 /* SymbolCell.m in Sources */,
+				D9E546251C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m in Sources */,
 				D955FC0D1C3C2C37000409FD /* FirstViewController.m in Sources */,
 				D955FC071C3C2C37000409FD /* main.m in Sources */,
+				D9E546281C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
