@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431BFC7A1C3DB4240008F85D /* GridHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 431BFC791C3DB4240008F85D /* GridHelper.m */; };
+		431BFC7D1C3DB8590008F85D /* UIColor+TDA.m in Sources */ = {isa = PBXBuildFile; fileRef = 431BFC7C1C3DB8590008F85D /* UIColor+TDA.m */; };
 		D955FC071C3C2C37000409FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC061C3C2C37000409FD /* main.m */; };
 		D955FC0A1C3C2C37000409FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC091C3C2C37000409FD /* AppDelegate.m */; };
-		D955FC0D1C3C2C37000409FD /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC0C1C3C2C37000409FD /* FirstViewController.m */; };
-		D955FC101C3C2C37000409FD /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC0F1C3C2C37000409FD /* SecondViewController.m */; };
+		D955FC0D1C3C2C37000409FD /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC0C1C3C2C37000409FD /* GridViewController.m */; };
 		D955FC131C3C2C37000409FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D955FC111C3C2C37000409FD /* Main.storyboard */; };
 		D955FC151C3C2C37000409FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D955FC141C3C2C37000409FD /* Assets.xcassets */; };
 		D955FC181C3C2C37000409FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D955FC161C3C2C37000409FD /* LaunchScreen.storyboard */; };
@@ -37,14 +38,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		431BFC781C3DB4240008F85D /* GridHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridHelper.h; sourceTree = "<group>"; };
+		431BFC791C3DB4240008F85D /* GridHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridHelper.m; sourceTree = "<group>"; };
+		431BFC7B1C3DB8590008F85D /* UIColor+TDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TDA.h"; sourceTree = "<group>"; };
+		431BFC7C1C3DB8590008F85D /* UIColor+TDA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TDA.m"; sourceTree = "<group>"; };
 		D955FC021C3C2C37000409FD /* dgpoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dgpoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D955FC061C3C2C37000409FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D955FC081C3C2C37000409FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D955FC091C3C2C37000409FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D955FC0B1C3C2C37000409FD /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		D955FC0C1C3C2C37000409FD /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		D955FC0E1C3C2C37000409FD /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		D955FC0F1C3C2C37000409FD /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		D955FC0B1C3C2C37000409FD /* GridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
+		D955FC0C1C3C2C37000409FD /* GridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
 		D955FC121C3C2C37000409FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D955FC141C3C2C37000409FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D955FC171C3C2C37000409FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,6 +91,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		431BFC751C3DB1A30008F85D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9B762431C3C68B500D6ED12 /* QuoteItem.h */,
+				D9B762441C3C68B500D6ED12 /* QuoteItem.m */,
+				D9B762461C3C6B5900D6ED12 /* QuoteItemDataMaker.h */,
+				D9B762471C3C6B5900D6ED12 /* QuoteItemDataMaker.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		431BFC761C3DB1D90008F85D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D9E546191C3D77FA0037F119 /* CurrencyCell.h */,
+				D9E5461A1C3D77FA0037F119 /* CurrencyCell.m */,
+				D9E5461C1C3D780C0037F119 /* SymbolCell.h */,
+				D9E5461D1C3D780C0037F119 /* SymbolCell.m */,
+				D9E546211C3D78400037F119 /* SymbolCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		431BFC771C3DB1F50008F85D /* GridDefinitions */ = {
+			isa = PBXGroup;
+			children = (
+				D9E546231C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.h */,
+				D9E546241C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m */,
+				D9E546261C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.h */,
+				D9E546271C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.m */,
+			);
+			name = GridDefinitions;
+			sourceTree = "<group>";
+		};
 		D955FBF91C3C2C37000409FD = {
 			isa = PBXGroup;
 			children = (
@@ -110,31 +147,20 @@
 		D955FC041C3C2C37000409FD /* dgpoc */ = {
 			isa = PBXGroup;
 			children = (
-				D9B762491C3C6BD000D6ED12 /* quotes.csv */,
 				D955FC081C3C2C37000409FD /* AppDelegate.h */,
 				D955FC091C3C2C37000409FD /* AppDelegate.m */,
-				D955FC0B1C3C2C37000409FD /* FirstViewController.h */,
-				D955FC0C1C3C2C37000409FD /* FirstViewController.m */,
-				D955FC0E1C3C2C37000409FD /* SecondViewController.h */,
-				D955FC0F1C3C2C37000409FD /* SecondViewController.m */,
-				D955FC111C3C2C37000409FD /* Main.storyboard */,
-				D955FC141C3C2C37000409FD /* Assets.xcassets */,
+				D955FC0B1C3C2C37000409FD /* GridViewController.h */,
+				D955FC0C1C3C2C37000409FD /* GridViewController.m */,
 				D955FC161C3C2C37000409FD /* LaunchScreen.storyboard */,
-				D955FC191C3C2C37000409FD /* Info.plist */,
+				D955FC111C3C2C37000409FD /* Main.storyboard */,
+				431BFC771C3DB1F50008F85D /* GridDefinitions */,
+				431BFC751C3DB1A30008F85D /* Model */,
+				431BFC761C3DB1D90008F85D /* Views */,
 				D955FC051C3C2C37000409FD /* Supporting Files */,
-				D9B762431C3C68B500D6ED12 /* QuoteItem.h */,
-				D9B762441C3C68B500D6ED12 /* QuoteItem.m */,
-				D9B762461C3C6B5900D6ED12 /* QuoteItemDataMaker.h */,
-				D9B762471C3C6B5900D6ED12 /* QuoteItemDataMaker.m */,
-				D9E546191C3D77FA0037F119 /* CurrencyCell.h */,
-				D9E5461A1C3D77FA0037F119 /* CurrencyCell.m */,
-				D9E5461C1C3D780C0037F119 /* SymbolCell.h */,
-				D9E5461D1C3D780C0037F119 /* SymbolCell.m */,
-				D9E546211C3D78400037F119 /* SymbolCell.xib */,
-				D9E546231C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.h */,
-				D9E546241C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m */,
-				D9E546261C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.h */,
-				D9E546271C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.m */,
+				431BFC781C3DB4240008F85D /* GridHelper.h */,
+				431BFC791C3DB4240008F85D /* GridHelper.m */,
+				431BFC7B1C3DB8590008F85D /* UIColor+TDA.h */,
+				431BFC7C1C3DB8590008F85D /* UIColor+TDA.m */,
 			);
 			path = dgpoc;
 			sourceTree = "<group>";
@@ -142,6 +168,9 @@
 		D955FC051C3C2C37000409FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D9B762491C3C6BD000D6ED12 /* quotes.csv */,
+				D955FC141C3C2C37000409FD /* Assets.xcassets */,
+				D955FC191C3C2C37000409FD /* Info.plist */,
 				D955FC061C3C2C37000409FD /* main.m */,
 			);
 			name = "Supporting Files";
@@ -260,12 +289,13 @@
 			files = (
 				D9B762481C3C6B5900D6ED12 /* QuoteItemDataMaker.m in Sources */,
 				D9E5461B1C3D77FA0037F119 /* CurrencyCell.m in Sources */,
+				431BFC7D1C3DB8590008F85D /* UIColor+TDA.m in Sources */,
 				D9B762451C3C68B500D6ED12 /* QuoteItem.m in Sources */,
-				D955FC101C3C2C37000409FD /* SecondViewController.m in Sources */,
 				D955FC0A1C3C2C37000409FD /* AppDelegate.m in Sources */,
 				D9E5461E1C3D780C0037F119 /* SymbolCell.m in Sources */,
 				D9E546251C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m in Sources */,
-				D955FC0D1C3C2C37000409FD /* FirstViewController.m in Sources */,
+				D955FC0D1C3C2C37000409FD /* GridViewController.m in Sources */,
+				431BFC7A1C3DB4240008F85D /* GridHelper.m in Sources */,
 				D955FC071C3C2C37000409FD /* main.m in Sources */,
 				D9E546281C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.m in Sources */,
 			);

@@ -1,12 +1,9 @@
-
 #import "QuoteItemDataMaker.h"
 #import "QuoteItem.h"
 
 @implementation QuoteItemDataMaker
 
-
-+ (NSArray *)quoteItemsFromCannedData
-{
++ (NSArray *)quoteItemsFromCannedData {
     NSMutableArray *dataList = [[NSMutableArray alloc] init];
     QuoteItem *q;
     
@@ -45,7 +42,6 @@
         
         [dataList addObject:q];
     }
-    
     return dataList;
 }
 

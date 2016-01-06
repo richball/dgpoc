@@ -3,7 +3,6 @@
 
 @interface QuoteItemDataMaker : NSObject
 
-
-+ (NSArray*) quoteItemsFromCannedData;
++ (NSArray *)quoteItemsFromCannedData;
 
 @end
