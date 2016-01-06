@@ -12,8 +12,10 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     NSString *fileContents = [NSString stringWithUTF8String:[data bytes]];
     
-    NSArray* rows = [fileContents componentsSeparatedByString:@"\n"];
-    for (NSString* row in rows) {
+    NSMutableArray *rows = [[fileContents componentsSeparatedByString:@"\n"] mutableCopy];
+    [rows removeObjectAtIndex:0];
+    
+    for (NSString *row in rows) {
         q = [[QuoteItem alloc] init];
 
         NSArray *c = [row componentsSeparatedByString:@","];

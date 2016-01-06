@@ -17,6 +17,16 @@
 
 @implementation GridHelper
 
++ (NSNumberFormatter *)decimalFormatter {
+    static NSNumberFormatter *decimalFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        decimalFormatter = [[NSNumberFormatter alloc] init];
+        decimalFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    });
+    return decimalFormatter;
+}
+
 + (NSNumberFormatter *)currencyFormatter {
     static NSNumberFormatter *currencyFormatter = nil;
     static dispatch_once_t onceToken;

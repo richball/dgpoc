@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		431BFC7A1C3DB4240008F85D /* GridHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 431BFC791C3DB4240008F85D /* GridHelper.m */; };
 		431BFC7D1C3DB8590008F85D /* UIColor+TDA.m in Sources */ = {isa = PBXBuildFile; fileRef = 431BFC7C1C3DB8590008F85D /* UIColor+TDA.m */; };
+		431BFC801C3DBDB50008F85D /* GridColumnsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431BFC7F1C3DBDB50008F85D /* GridColumnsTableViewController.m */; };
 		D955FC071C3C2C37000409FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC061C3C2C37000409FD /* main.m */; };
 		D955FC0A1C3C2C37000409FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC091C3C2C37000409FD /* AppDelegate.m */; };
 		D955FC0D1C3C2C37000409FD /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC0C1C3C2C37000409FD /* GridViewController.m */; };
@@ -42,6 +43,8 @@
 		431BFC791C3DB4240008F85D /* GridHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridHelper.m; sourceTree = "<group>"; };
 		431BFC7B1C3DB8590008F85D /* UIColor+TDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TDA.h"; sourceTree = "<group>"; };
 		431BFC7C1C3DB8590008F85D /* UIColor+TDA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TDA.m"; sourceTree = "<group>"; };
+		431BFC7E1C3DBDB50008F85D /* GridColumnsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridColumnsTableViewController.h; sourceTree = "<group>"; };
+		431BFC7F1C3DBDB50008F85D /* GridColumnsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridColumnsTableViewController.m; sourceTree = "<group>"; };
 		D955FC021C3C2C37000409FD /* dgpoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dgpoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D955FC061C3C2C37000409FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D955FC081C3C2C37000409FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -125,6 +128,17 @@
 			name = GridDefinitions;
 			sourceTree = "<group>";
 		};
+		431BFC811C3DBDF40008F85D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				431BFC781C3DB4240008F85D /* GridHelper.h */,
+				431BFC791C3DB4240008F85D /* GridHelper.m */,
+				431BFC7B1C3DB8590008F85D /* UIColor+TDA.h */,
+				431BFC7C1C3DB8590008F85D /* UIColor+TDA.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		D955FBF91C3C2C37000409FD = {
 			isa = PBXGroup;
 			children = (
@@ -151,16 +165,15 @@
 				D955FC091C3C2C37000409FD /* AppDelegate.m */,
 				D955FC0B1C3C2C37000409FD /* GridViewController.h */,
 				D955FC0C1C3C2C37000409FD /* GridViewController.m */,
+				431BFC7E1C3DBDB50008F85D /* GridColumnsTableViewController.h */,
+				431BFC7F1C3DBDB50008F85D /* GridColumnsTableViewController.m */,
 				D955FC161C3C2C37000409FD /* LaunchScreen.storyboard */,
 				D955FC111C3C2C37000409FD /* Main.storyboard */,
+				431BFC811C3DBDF40008F85D /* Helpers */,
 				431BFC771C3DB1F50008F85D /* GridDefinitions */,
 				431BFC751C3DB1A30008F85D /* Model */,
 				431BFC761C3DB1D90008F85D /* Views */,
 				D955FC051C3C2C37000409FD /* Supporting Files */,
-				431BFC781C3DB4240008F85D /* GridHelper.h */,
-				431BFC791C3DB4240008F85D /* GridHelper.m */,
-				431BFC7B1C3DB8590008F85D /* UIColor+TDA.h */,
-				431BFC7C1C3DB8590008F85D /* UIColor+TDA.m */,
 			);
 			path = dgpoc;
 			sourceTree = "<group>";
@@ -293,6 +306,7 @@
 				D9B762451C3C68B500D6ED12 /* QuoteItem.m in Sources */,
 				D955FC0A1C3C2C37000409FD /* AppDelegate.m in Sources */,
 				D9E5461E1C3D780C0037F119 /* SymbolCell.m in Sources */,
+				431BFC801C3DBDB50008F85D /* GridColumnsTableViewController.m in Sources */,
 				D9E546251C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m in Sources */,
 				D955FC0D1C3C2C37000409FD /* GridViewController.m in Sources */,
 				431BFC7A1C3DB4240008F85D /* GridHelper.m in Sources */,
