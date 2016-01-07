@@ -33,7 +33,7 @@ static const NSUInteger kCurrencyCellWidth = 90;
     [self.gridView insertFixedLeftColumnsAtIndexes:@[@0]];
     
     self.nonVisibleColumns = [self createAllColumnDefinitions];
-    NSArray *defaultColumnsHeaderKeys = @[@"lastTrade", @"bid", @"bid", @"ask", @"open", @"daysHigh", @"daysLow"];
+    NSArray *defaultColumnsHeaderKeys = @[@"lastTrade", @"bid", @"ask", @"open", @"daysHigh", @"daysLow"];
     [self.ds.columnDefinitions addObjectsFromArray:[self columnsWithHeaderKeys:defaultColumnsHeaderKeys]];
 
     self.data = [QuoteItemDataMaker quoteItemsFromCannedData];
@@ -58,35 +58,16 @@ static const NSUInteger kCurrencyCellWidth = 90;
         return;
     }
     
-    [editedColumns enumerateObjectsUsingBlock:^(IGGridViewColumnDefinition * _Nonnull userDesiredColumnDefinition, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (![self.ds.columns containsObject:userDesiredColumnDefinition]) {
-            // then we have a new column to show
-            [self.ds insertColumns:@[userDesiredColumnDefinition] atIndex:0];    // default posiiton
-            [self.gridView insertColumnsAtIndexes:@[@0]];
-        }
-    }];
-    
-    NSMutableArray *columnsToDelete = [NSMutableArray array];
     NSMutableArray *columnIndexesToDelete = [NSMutableArray array];
     
-    // Delete Columns
-    [self.ds.columns enumerateObjectsUsingBlock:^(IGGridViewColumnDefinition * _Nonnull visibleColumnDefinition, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (![editedColumns containsObject:visibleColumnDefinition]) {
-            [columnsToDelete addObject:visibleColumnDefinition];
-            [columnIndexesToDelete addObject:@(idx)];
-        }
-    }];
-
-    [self.ds deleteColumns:[columnsToDelete copy]];
-    [self.gridView deleteColumnsAtIndexes:[columnIndexesToDelete copy]];
+    for (NSInteger i=0; i<self.ds.columns.count; i++){
+        [columnIndexesToDelete addObject:@(i)];
+    }
     
-//    [editedColumns enumerateObjectsUsingBlock:^(IGGridViewColumnDefinition * _Nonnull userDesiredColumnDefinition, NSUInteger targetIndex, BOOL * _Nonnull stop) {
-//        NSInteger currentIndex = [self.ds.columns indexOfObject:userDesiredColumnDefinition];
-//        if (currentIndex != targetIndex) {
-//            [self.gridView moveColumnAtIndex:currentIndex toIndex:targetIndex];
-//        }
-//    }];
-
+    [self.ds deleteColumns:self.ds.columns];
+    [self.gridView deleteColumnsAtIndexes: columnIndexesToDelete];
+    
+    [self.ds insertColumns:editedColumns atIndex:0];
 }
 
 
