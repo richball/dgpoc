@@ -64,12 +64,12 @@
         <scene sceneID="XHk-9U-8jF">
             <objects>
                 <tableViewController id="WfT-YN-6WA" customClass="GridColumnsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ASW-NX-wTa">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ASW-NX-wTa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddColumnCell" id="LOt-b9-Atm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="AddColumnCell" id="LOt-b9-Atm">
                                 <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LOt-b9-Atm" id="a9U-kU-602">
@@ -86,20 +86,20 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5By-w3-P82" userLabel="Info Button">
-                                            <rect key="frame" x="530" y="11" width="22" height="22"/>
+                                            <rect key="frame" x="550" y="11" width="22" height="22"/>
                                         </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="8Yq-AS-rnK" firstAttribute="centerY" secondItem="mLe-fm-x3g" secondAttribute="centerY" id="EWf-S2-bJR"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="mLe-fm-x3g" secondAttribute="leading" id="Vlx-mz-drh"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="5By-w3-P82" secondAttribute="trailing" constant="40" id="ZdT-Hw-rkI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5By-w3-P82" secondAttribute="trailing" constant="20" id="ZdT-Hw-rkI"/>
                                         <constraint firstItem="mLe-fm-x3g" firstAttribute="centerY" secondItem="a9U-kU-602" secondAttribute="centerY" id="itM-hZ-mn8"/>
                                         <constraint firstItem="5By-w3-P82" firstAttribute="centerY" secondItem="mLe-fm-x3g" secondAttribute="centerY" id="oUh-Z2-cne"/>
                                         <constraint firstItem="8Yq-AS-rnK" firstAttribute="leading" secondItem="mLe-fm-x3g" secondAttribute="trailing" constant="16" id="sit-Ul-eum"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RemoveColumnCell" id="3fh-JA-8cG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="RemoveColumnCell" id="3fh-JA-8cG">
                                 <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3fh-JA-8cG" id="xRZ-qZ-O0X">
@@ -117,14 +117,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f8-uz-l9l" userLabel="Info Button">
-                                            <rect key="frame" x="530" y="11" width="22" height="22"/>
+                                            <rect key="frame" x="550" y="11" width="22" height="22"/>
                                         </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="0Z1-Q4-oCe" firstAttribute="centerY" secondItem="xRZ-qZ-O0X" secondAttribute="centerY" id="0gc-dL-JeJ"/>
                                         <constraint firstItem="XxA-BH-icZ" firstAttribute="leading" secondItem="0Z1-Q4-oCe" secondAttribute="trailing" constant="16" id="GVw-R5-eEQ"/>
                                         <constraint firstItem="XxA-BH-icZ" firstAttribute="centerY" secondItem="0Z1-Q4-oCe" secondAttribute="centerY" id="Pxy-wd-fC7"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="2f8-uz-l9l" secondAttribute="trailing" constant="40" id="XjL-ZH-LLg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="2f8-uz-l9l" secondAttribute="trailing" constant="20" id="XjL-ZH-LLg"/>
                                         <constraint firstItem="2f8-uz-l9l" firstAttribute="centerY" secondItem="0Z1-Q4-oCe" secondAttribute="centerY" id="gab-Er-psa"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="0Z1-Q4-oCe" secondAttribute="leading" id="vXT-eS-K4j"/>
                                     </constraints>
