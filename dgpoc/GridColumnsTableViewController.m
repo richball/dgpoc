@@ -14,14 +14,6 @@
 
 #pragma mark - Controller Lifecycle
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-//    UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(btnDoneTapped:)];
-//    doneButtonItem.tintColor = [UIColor whiteColor];
-//    self.navigationItem.rightBarButtonItem = doneButtonItem;
-}
-
 - (void)configureWithCurrentVisibleColumns:(NSArray *)currentVisibleColumns nonVisibleColumns:(NSMutableArray *)nonVisibleColumns {
     self.currentColumns = [currentVisibleColumns mutableCopy];
     self.nonVisibleColumns = nonVisibleColumns;
@@ -31,13 +23,6 @@
     self.editedColumns = [self.currentColumns copy];
 }
 
-#pragma mark - Target/Action
-
-- (void)btnDoneTapped:(UIBarButtonItem *)sender {
-    
-   // [self performSegueWithIdentifier:@"unwindSegueGridViewController" sender:self];
-    //[self dismissViewControllerAnimated:YES completion:nil];
-}
 
 #pragma mark - <UITableViewDataSource>
 

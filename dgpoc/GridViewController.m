@@ -50,22 +50,26 @@ static const NSUInteger kCurrencyCellWidth = 90;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.gridView reloadData];
-//    [self.gridView updateData];
 }
 
 - (void)gridEditColumnsControllerReturnedColumns:(NSArray *)editedColumns {
+    
+    if (!editedColumns.count) {
+        return;
+    }
     
     NSMutableArray *columnsToDelete = [NSMutableArray array];
     NSMutableArray *columnIndexesToDelete = [NSMutableArray array];
     
     // Delete Columns
-    [self.ds.columnDefinitions enumerateObjectsUsingBlock:^(IGGridViewColumnDefinition * _Nonnull visibleColumnDefinition, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.ds.columns enumerateObjectsUsingBlock:^(IGGridViewColumnDefinition * _Nonnull visibleColumnDefinition, NSUInteger idx, BOOL * _Nonnull stop) {
         if (![editedColumns containsObject:visibleColumnDefinition]) {
             [columnsToDelete addObject:visibleColumnDefinition];
             [columnIndexesToDelete addObject:@(idx)];
         }
     }];
 
+    
     [self.ds deleteColumns:[columnsToDelete copy]];
     [self.gridView deleteColumnsAtIndexes:[columnIndexesToDelete copy]];
 }
@@ -76,18 +80,15 @@ static const NSUInteger kCurrencyCellWidth = 90;
     if ([segue.identifier isEqualToString:@"SegueEditColumns"]) {
         UINavigationController *navController = segue.destinationViewController;
         GridColumnsTableViewController *gridEditColumnsVC = (GridColumnsTableViewController *)navController.topViewController;
-        [gridEditColumnsVC configureWithCurrentVisibleColumns:[self.ds.columnDefinitions copy] nonVisibleColumns:self.nonVisibleColumns];
+        [gridEditColumnsVC configureWithCurrentVisibleColumns:[self.ds.columns copy] nonVisibleColumns:self.nonVisibleColumns];
         [gridEditColumnsVC.tableView reloadData];
     }
 }
 
 - (IBAction)unwindEditColumnsViewControllerUsingUnwindSegue:(UIStoryboardSegue *)unwindSegue {
     
-}
-
-- (IBAction)backToTheStart:(UIStoryboardSegue *)segue {
-       
-    // access public properties from ViewController2 here
+    GridColumnsTableViewController *gridEditColumnsVC = unwindSegue.sourceViewController;
+    [self gridEditColumnsControllerReturnedColumns:gridEditColumnsVC.editedColumns];
 }
 
 #pragma mark - Private
