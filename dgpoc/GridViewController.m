@@ -33,8 +33,9 @@ static const NSUInteger kCurrencyCellWidth = 90;
     [self.gridView insertFixedLeftColumnsAtIndexes:@[@0]];
     
     self.nonVisibleColumns = [self createAllColumnDefinitions];
-    NSArray *defaultColumnsHeaderKeys = @[@"lastTrade", @"bid", @"ask", @"open", @"daysHigh", @"daysLow"];
+    NSArray *defaultColumnsHeaderKeys = @[@"lastTrade", @"bid", @"bid", @"ask", @"open", @"daysHigh", @"daysLow"];
     [self.ds.columnDefinitions addObjectsFromArray:[self columnsWithHeaderKeys:defaultColumnsHeaderKeys]];
+
     self.data = [QuoteItemDataMaker quoteItemsFromCannedData];
 
     self.gridView.delegate = self;
@@ -53,10 +54,17 @@ static const NSUInteger kCurrencyCellWidth = 90;
 }
 
 - (void)gridEditColumnsControllerReturnedColumns:(NSArray *)editedColumns {
-    
     if (!editedColumns.count) {
         return;
     }
+    
+    [editedColumns enumerateObjectsUsingBlock:^(IGGridViewColumnDefinition * _Nonnull userDesiredColumnDefinition, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (![self.ds.columns containsObject:userDesiredColumnDefinition]) {
+            // then we have a new column to show
+            [self.ds insertColumns:@[userDesiredColumnDefinition] atIndex:0];    // default posiiton
+            [self.gridView insertColumnsAtIndexes:@[@0]];
+        }
+    }];
     
     NSMutableArray *columnsToDelete = [NSMutableArray array];
     NSMutableArray *columnIndexesToDelete = [NSMutableArray array];
@@ -69,10 +77,18 @@ static const NSUInteger kCurrencyCellWidth = 90;
         }
     }];
 
-    
     [self.ds deleteColumns:[columnsToDelete copy]];
     [self.gridView deleteColumnsAtIndexes:[columnIndexesToDelete copy]];
+    
+//    [editedColumns enumerateObjectsUsingBlock:^(IGGridViewColumnDefinition * _Nonnull userDesiredColumnDefinition, NSUInteger targetIndex, BOOL * _Nonnull stop) {
+//        NSInteger currentIndex = [self.ds.columns indexOfObject:userDesiredColumnDefinition];
+//        if (currentIndex != targetIndex) {
+//            [self.gridView moveColumnAtIndex:currentIndex toIndex:targetIndex];
+//        }
+//    }];
+
 }
+
 
 #pragma mark - Navigation
 
