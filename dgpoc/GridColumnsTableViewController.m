@@ -1,4 +1,6 @@
 #import "GridColumnsTableViewController.h"
+#import "GridViewController.h"
+
 #import <IG/IG.h>
 
 @interface GridColumnsTableViewController ()
@@ -15,20 +17,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(btnDoneTapped:)];
-    doneButtonItem.tintColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = doneButtonItem;
+//    UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(btnDoneTapped:)];
+//    doneButtonItem.tintColor = [UIColor whiteColor];
+//    self.navigationItem.rightBarButtonItem = doneButtonItem;
 }
 
-- (void)configureWithCurrentColumns:(NSMutableArray *)currentColumns nonVisibleColumns:(NSMutableArray *)nonVisibleColumns {
-    self.currentColumns = currentColumns;
+- (void)configureWithCurrentVisibleColumns:(NSArray *)currentVisibleColumns nonVisibleColumns:(NSMutableArray *)nonVisibleColumns {
+    self.currentColumns = [currentVisibleColumns mutableCopy];
     self.nonVisibleColumns = nonVisibleColumns;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self.editedColumns = [self.currentColumns copy];
 }
 
 #pragma mark - Target/Action
 
 - (void)btnDoneTapped:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+   // [self performSegueWithIdentifier:@"unwindSegueGridViewController" sender:self];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - <UITableViewDataSource>
@@ -47,20 +55,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
     IGGridViewColumnDefinition *columnDefinition = nil;
-    UIButton *button = nil;
     
     switch (indexPath.section) {
         case 0:
             cell = [tableView dequeueReusableCellWithIdentifier:@"RemoveColumnCell" forIndexPath:indexPath];
             columnDefinition = self.currentColumns[indexPath.row];
-            button = [cell viewWithTag:102];
-            button.tag = indexPath.row;
             break;
         case 1:
             cell = [tableView dequeueReusableCellWithIdentifier:@"AddColumnCell" forIndexPath:indexPath];
             columnDefinition = self.nonVisibleColumns[indexPath.row];
-            button = [cell viewWithTag:102];
-            button.tag = indexPath.row;
             break;
         default:
             break;
@@ -76,6 +79,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    IGGridViewColumnDefinition *columnDefinition = nil;
+    
+    if (indexPath.section == 0) {
+        columnDefinition = self.currentColumns[indexPath.row];
+        [self.currentColumns removeObject:columnDefinition];
+        [self.nonVisibleColumns addObject:columnDefinition];
+    } else {
+        columnDefinition = self.nonVisibleColumns[indexPath.row];
+        [self.nonVisibleColumns removeObject:columnDefinition];
+        [self.currentColumns addObject:columnDefinition];
+    }
+    
+    [self.tableView reloadData];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {

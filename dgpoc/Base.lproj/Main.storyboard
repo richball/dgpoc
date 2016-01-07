@@ -48,7 +48,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="nt0-qR-mSN">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="lUT-wF-9uR" kind="presentation" identifier="SegueEditColumns" id="FBT-hS-O3J"/>
+                                <segue destination="lUT-wF-9uR" kind="show" identifier="SegueEditColumns" id="FBT-hS-O3J"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -60,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="789" y="-320"/>
         </scene>
-        <!--Columns-->
+        <!--Edit Columns-->
         <scene sceneID="XHk-9U-8jF">
             <objects>
                 <tableViewController id="WfT-YN-6WA" customClass="GridColumnsTableViewController" sceneMemberID="viewController">
@@ -76,19 +76,27 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLe-fm-x3g" userLabel="Add Button">
+                                        <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLe-fm-x3g" userLabel="Add Button">
                                             <rect key="frame" x="8" y="11" width="22" height="22"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yq-AS-rnK" userLabel="Column Name">
-                                            <rect key="frame" x="48" y="11" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yq-AS-rnK" userLabel="Column Name">
+                                            <rect key="frame" x="46" y="11" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5By-w3-P82" userLabel="Info Button">
-                                            <rect key="frame" x="508" y="10" width="22" height="22"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5By-w3-P82" userLabel="Info Button">
+                                            <rect key="frame" x="530" y="11" width="22" height="22"/>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8Yq-AS-rnK" firstAttribute="centerY" secondItem="mLe-fm-x3g" secondAttribute="centerY" id="EWf-S2-bJR"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="mLe-fm-x3g" secondAttribute="leading" id="Vlx-mz-drh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5By-w3-P82" secondAttribute="trailing" constant="40" id="ZdT-Hw-rkI"/>
+                                        <constraint firstItem="mLe-fm-x3g" firstAttribute="centerY" secondItem="a9U-kU-602" secondAttribute="centerY" id="itM-hZ-mn8"/>
+                                        <constraint firstItem="5By-w3-P82" firstAttribute="centerY" secondItem="mLe-fm-x3g" secondAttribute="centerY" id="oUh-Z2-cne"/>
+                                        <constraint firstItem="8Yq-AS-rnK" firstAttribute="leading" secondItem="mLe-fm-x3g" secondAttribute="trailing" constant="16" id="sit-Ul-eum"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RemoveColumnCell" id="3fh-JA-8cG">
@@ -98,20 +106,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Z1-Q4-oCe" userLabel="Remove Button">
+                                        <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Z1-Q4-oCe" userLabel="Remove Button">
                                             <rect key="frame" x="8" y="11" width="22" height="22"/>
                                             <color key="tintColor" red="0.82705061229999999" green="0.24643425769999999" blue="0.1604695602" alpha="1" colorSpace="calibratedRGB"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxA-BH-icZ" userLabel="Column Name">
-                                            <rect key="frame" x="48" y="11" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxA-BH-icZ" userLabel="Column Name">
+                                            <rect key="frame" x="46" y="11" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f8-uz-l9l" userLabel="Info Button">
-                                            <rect key="frame" x="508" y="10" width="22" height="22"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f8-uz-l9l" userLabel="Info Button">
+                                            <rect key="frame" x="530" y="11" width="22" height="22"/>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0Z1-Q4-oCe" firstAttribute="centerY" secondItem="xRZ-qZ-O0X" secondAttribute="centerY" id="0gc-dL-JeJ"/>
+                                        <constraint firstItem="XxA-BH-icZ" firstAttribute="leading" secondItem="0Z1-Q4-oCe" secondAttribute="trailing" constant="16" id="GVw-R5-eEQ"/>
+                                        <constraint firstItem="XxA-BH-icZ" firstAttribute="centerY" secondItem="0Z1-Q4-oCe" secondAttribute="centerY" id="Pxy-wd-fC7"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="2f8-uz-l9l" secondAttribute="trailing" constant="40" id="XjL-ZH-LLg"/>
+                                        <constraint firstItem="2f8-uz-l9l" firstAttribute="centerY" secondItem="0Z1-Q4-oCe" secondAttribute="centerY" id="gab-Er-psa"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="0Z1-Q4-oCe" secondAttribute="leading" id="vXT-eS-K4j"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -121,7 +137,9 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Columns" id="WLy-ms-3ca"/>
+                    <navigationItem key="navigationItem" title="Edit Columns" id="esb-WF-Bep">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="paR-p8-gwA"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wIz-YY-0hA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
