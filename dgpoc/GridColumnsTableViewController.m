@@ -29,7 +29,6 @@
     self.editedColumns = [self.currentColumns copy];
 }
 
-
 #pragma mark - <UITableViewDataSource>
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

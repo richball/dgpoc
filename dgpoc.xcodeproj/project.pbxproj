@@ -10,6 +10,9 @@
 		431BFC7A1C3DB4240008F85D /* GridHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 431BFC791C3DB4240008F85D /* GridHelper.m */; };
 		431BFC7D1C3DB8590008F85D /* UIColor+TDA.m in Sources */ = {isa = PBXBuildFile; fileRef = 431BFC7C1C3DB8590008F85D /* UIColor+TDA.m */; };
 		431BFC801C3DBDB50008F85D /* GridColumnsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431BFC7F1C3DBDB50008F85D /* GridColumnsTableViewController.m */; };
+		434CDF9A1C3FFD04007F12E2 /* IGGridViewSortingHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 434CDF991C3FFD04007F12E2 /* IGGridViewSortingHeaderCell.m */; };
+		434CDF9D1C3FFF46007F12E2 /* IGGridViewSortingDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 434CDF9C1C3FFF46007F12E2 /* IGGridViewSortingDataSourceHelper.m */; };
+		4368A87D1C401D9D008FB4F0 /* TDAGridViewTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4368A87C1C401D9D008FB4F0 /* TDAGridViewTheme.m */; };
 		D955FC071C3C2C37000409FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC061C3C2C37000409FD /* main.m */; };
 		D955FC0A1C3C2C37000409FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC091C3C2C37000409FD /* AppDelegate.m */; };
 		D955FC0D1C3C2C37000409FD /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC0C1C3C2C37000409FD /* GridViewController.m */; };
@@ -45,6 +48,13 @@
 		431BFC7C1C3DB8590008F85D /* UIColor+TDA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TDA.m"; sourceTree = "<group>"; };
 		431BFC7E1C3DBDB50008F85D /* GridColumnsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridColumnsTableViewController.h; sourceTree = "<group>"; };
 		431BFC7F1C3DBDB50008F85D /* GridColumnsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridColumnsTableViewController.m; sourceTree = "<group>"; };
+		434CDF981C3FFD04007F12E2 /* IGGridViewSortingHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGGridViewSortingHeaderCell.h; sourceTree = "<group>"; };
+		434CDF991C3FFD04007F12E2 /* IGGridViewSortingHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGGridViewSortingHeaderCell.m; sourceTree = "<group>"; };
+		434CDF9B1C3FFF46007F12E2 /* IGGridViewSortingDataSourceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGGridViewSortingDataSourceHelper.h; sourceTree = "<group>"; };
+		434CDF9C1C3FFF46007F12E2 /* IGGridViewSortingDataSourceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGGridViewSortingDataSourceHelper.m; sourceTree = "<group>"; };
+		434CDF9F1C3FFFB1007F12E2 /* IGGridViewSortingDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGGridViewSortingDelegate.h; sourceTree = "<group>"; };
+		4368A87B1C401D9D008FB4F0 /* TDAGridViewTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDAGridViewTheme.h; sourceTree = "<group>"; };
+		4368A87C1C401D9D008FB4F0 /* TDAGridViewTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDAGridViewTheme.m; sourceTree = "<group>"; };
 		D955FC021C3C2C37000409FD /* dgpoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dgpoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D955FC061C3C2C37000409FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D955FC081C3C2C37000409FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +123,8 @@
 				D9E5461C1C3D780C0037F119 /* SymbolCell.h */,
 				D9E5461D1C3D780C0037F119 /* SymbolCell.m */,
 				D9E546211C3D78400037F119 /* SymbolCell.xib */,
+				434CDF981C3FFD04007F12E2 /* IGGridViewSortingHeaderCell.h */,
+				434CDF991C3FFD04007F12E2 /* IGGridViewSortingHeaderCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -135,8 +147,20 @@
 				431BFC791C3DB4240008F85D /* GridHelper.m */,
 				431BFC7B1C3DB8590008F85D /* UIColor+TDA.h */,
 				431BFC7C1C3DB8590008F85D /* UIColor+TDA.m */,
+				434CDF9B1C3FFF46007F12E2 /* IGGridViewSortingDataSourceHelper.h */,
+				434CDF9C1C3FFF46007F12E2 /* IGGridViewSortingDataSourceHelper.m */,
+				4368A87B1C401D9D008FB4F0 /* TDAGridViewTheme.h */,
+				4368A87C1C401D9D008FB4F0 /* TDAGridViewTheme.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		434CDF9E1C3FFF82007F12E2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				434CDF9F1C3FFFB1007F12E2 /* IGGridViewSortingDelegate.h */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		D955FBF91C3C2C37000409FD = {
@@ -169,6 +193,7 @@
 				431BFC7F1C3DBDB50008F85D /* GridColumnsTableViewController.m */,
 				D955FC161C3C2C37000409FD /* LaunchScreen.storyboard */,
 				D955FC111C3C2C37000409FD /* Main.storyboard */,
+				434CDF9E1C3FFF82007F12E2 /* Protocols */,
 				431BFC811C3DBDF40008F85D /* Helpers */,
 				431BFC771C3DB1F50008F85D /* GridDefinitions */,
 				431BFC751C3DB1A30008F85D /* Model */,
@@ -309,9 +334,12 @@
 				431BFC801C3DBDB50008F85D /* GridColumnsTableViewController.m in Sources */,
 				D9E546251C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m in Sources */,
 				D955FC0D1C3C2C37000409FD /* GridViewController.m in Sources */,
+				434CDF9A1C3FFD04007F12E2 /* IGGridViewSortingHeaderCell.m in Sources */,
+				434CDF9D1C3FFF46007F12E2 /* IGGridViewSortingDataSourceHelper.m in Sources */,
 				431BFC7A1C3DB4240008F85D /* GridHelper.m in Sources */,
 				D955FC071C3C2C37000409FD /* main.m in Sources */,
 				D9E546281C3D791F0037F119 /* IGGridViewSymbolColumnDefinition.m in Sources */,
+				4368A87D1C401D9D008FB4F0 /* TDAGridViewTheme.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,11 +467,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "frameworks/**";
 				INFOPLIST_FILE = dgpoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tdameritrade.dgpoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e39350af-7af2-476f-8e80-26cd6679b33b";
 			};
 			name = Debug;
 		};
@@ -456,6 +486,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tdameritrade.dgpoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e39350af-7af2-476f-8e80-26cd6679b33b";
 			};
 			name = Release;
 		};

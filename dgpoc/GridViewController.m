@@ -1,18 +1,23 @@
 #import "GridViewController.h"
 #import "GridColumnsTableViewController.h"
 
-#import "QuoteItemDataMaker.h"
 #import "QuoteItem.h"
+#import "QuoteItemDataMaker.h"
+#import "TDAGridViewTheme.h"
+
+#import "IGGridViewSortingDataSourceHelper.h"
 #import "IGGridViewSymbolColumnDefinition.h"
 #import "IGGridViewCurrencyColumnDefinition.h"
 
-static const NSUInteger kDecimalCellWidth = 70;
+static const NSUInteger kDecimalCellWidth = 80;
 static const NSUInteger kCurrencyCellWidth = 90;
 
 @interface GridViewController ()
 
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) NSMutableArray *nonVisibleColumns;
+@property (nonatomic, strong) TDAGridViewTheme *tdaTheme;
+@property (nonatomic, strong) IGGridViewLightTheme *lightTheme;
 
 @end
 
@@ -22,35 +27,20 @@ static const NSUInteger kCurrencyCellWidth = 90;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.ds = [[IGGridViewDataSourceHelper alloc] init];
+    
+    [self configureChartAndDataSource];
     
     IGGridViewSymbolColumnDefinition *symDef = [[IGGridViewSymbolColumnDefinition alloc] initWithKey:@"symbol"];
     symDef.headerText = @"Symbol";
     symDef.backgroundColor = [UIColor whiteColor];
-    symDef.width = [[IGColumnWidth alloc]initWithWidth:100];
+    symDef.width = [[IGColumnWidth alloc] initWithWidth:100];
     [self.ds.fixedLeftColumns addObject:symDef];
     [self.gridView insertFixedLeftColumnsAtIndexes:@[@0]];
-    
-    self.nonVisibleColumns = [self createAllColumnDefinitions];
-    NSArray *defaultColumnsHeaderKeys = @[@"lastTrade", @"bid", @"ask", @"open", @"daysHigh", @"daysLow"];
-    [self.ds.columnDefinitions addObjectsFromArray:[self columnsWithHeaderKeys:defaultColumnsHeaderKeys]];
-
-    self.data = [QuoteItemDataMaker quoteItemsFromCannedData];
-
-    self.gridView.delegate = self;
-    self.gridView.selectionType = IGGridViewSelectionTypeNone;
-    self.gridView.rowHeight = 60;
-    
-    self.ds.autoGenerateColumns = NO;
-    self.ds.data = self.data;
-    self.gridView.dataSource = self.ds;
-    self.ds.allowColumnReordering = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.gridView reloadData];
+    [self.gridView updateData];
 }
 
 - (void)gridEditColumnsControllerReturnedColumns:(NSArray *)editedColumns {
@@ -83,12 +73,36 @@ static const NSUInteger kCurrencyCellWidth = 90;
 }
 
 - (IBAction)unwindEditColumnsViewControllerUsingUnwindSegue:(UIStoryboardSegue *)unwindSegue {
-    
     GridColumnsTableViewController *gridEditColumnsVC = unwindSegue.sourceViewController;
     [self gridEditColumnsControllerReturnedColumns:gridEditColumnsVC.editedColumns];
 }
 
 #pragma mark - Private
+
+- (void)configureChartAndDataSource {
+    self.ds = [[IGGridViewSortingDataSourceHelper alloc] init];
+    self.data = [QuoteItemDataMaker quoteItemsFromCannedData];
+    self.nonVisibleColumns = [self createAllColumnDefinitions];
+    self.tdaTheme = [[TDAGridViewTheme alloc] init];
+    self.lightTheme = [[IGGridViewLightTheme alloc] init];
+
+    NSArray *defaultColumnsHeaderKeys = @[@"lastTrade", @"bid", @"ask", @"open", @"daysHigh", @"daysLow"];
+    NSArray *defaultColumns = [self columnsWithHeaderKeys:defaultColumnsHeaderKeys];
+    [self.ds.columnDefinitions addObjectsFromArray:defaultColumns];
+
+    self.ds.autoGenerateColumns = NO;
+    self.ds.allowColumnReordering = YES;
+    self.ds.data = self.data;
+    
+    self.gridView.rowSeparatorHeight = 1.f;
+    self.gridView.headerBackgroundColor = [UIColor lightGrayColor];
+    self.gridView.selectionType = IGGridViewSelectionTypeNone;
+    self.gridView.rowHeight = 50;
+    self.gridView.theme = self.lightTheme;
+
+    self.gridView.delegate = self;
+    self.gridView.dataSource = self.ds;
+}
 
 - (NSMutableArray *)createAllColumnDefinitions {
     NSMutableArray *columns = [NSMutableArray array];
@@ -110,6 +124,7 @@ static const NSUInteger kCurrencyCellWidth = 90;
     
     curDef = [[IGGridViewCurrencyColumnDefinition alloc] initWithKey:@"open"];
     curDef.headerText = @"Open";
+    
     curDef.width = [[IGColumnWidth alloc] initWithWidth:kCurrencyCellWidth];
     [columns addObject:curDef];
     
@@ -129,12 +144,12 @@ static const NSUInteger kCurrencyCellWidth = 90;
     [columns addObject:colDef];
     
     colDef = [[IGGridViewColumnDefinition alloc] initWithKey:@"askSize"];
-    colDef.headerText = @"Ask Size";
+    colDef.headerText = @"AskSize";
     colDef.width = [[IGColumnWidth alloc] initWithWidth:kDecimalCellWidth];
     [columns addObject:colDef];
     
     colDef = [[IGGridViewColumnDefinition alloc] initWithKey:@"bidSize"];
-    colDef.headerText = @"Bid Size";
+    colDef.headerText = @"BidSize";
     colDef.width = [[IGColumnWidth alloc] initWithWidth:kDecimalCellWidth];
     [columns addObject:colDef];
     
@@ -144,7 +159,7 @@ static const NSUInteger kCurrencyCellWidth = 90;
     [columns addObject:colDef];
     
     colDef = [[IGGridViewColumnDefinition alloc] initWithKey:@"changePercentChange"];
-    colDef.headerText = @"Change%";
+    colDef.headerText = @"Chnge%";
     colDef.width = [[IGColumnWidth alloc] initWithWidth:kDecimalCellWidth];
     [columns addObject:colDef];
     

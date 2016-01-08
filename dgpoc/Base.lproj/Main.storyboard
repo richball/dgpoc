@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Custom Columns!!!-->
+        <!--Custom Columns-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="GridViewController" sceneMemberID="viewController">
@@ -44,7 +44,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
-                    <navigationItem key="navigationItem" title="Custom Columns!!!" id="Fwa-Kk-uw9">
+                    <navigationItem key="navigationItem" title="Custom Columns" id="Fwa-Kk-uw9">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="nt0-qR-mSN">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -86,13 +86,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5By-w3-P82" userLabel="Info Button">
-                                            <rect key="frame" x="550" y="11" width="22" height="22"/>
+                                            <rect key="frame" x="562" y="11" width="22" height="22"/>
                                         </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="8Yq-AS-rnK" firstAttribute="centerY" secondItem="mLe-fm-x3g" secondAttribute="centerY" id="EWf-S2-bJR"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="mLe-fm-x3g" secondAttribute="leading" id="Vlx-mz-drh"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="5By-w3-P82" secondAttribute="trailing" constant="20" id="ZdT-Hw-rkI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5By-w3-P82" secondAttribute="trailing" constant="8" id="ZdT-Hw-rkI"/>
                                         <constraint firstItem="mLe-fm-x3g" firstAttribute="centerY" secondItem="a9U-kU-602" secondAttribute="centerY" id="itM-hZ-mn8"/>
                                         <constraint firstItem="5By-w3-P82" firstAttribute="centerY" secondItem="mLe-fm-x3g" secondAttribute="centerY" id="oUh-Z2-cne"/>
                                         <constraint firstItem="8Yq-AS-rnK" firstAttribute="leading" secondItem="mLe-fm-x3g" secondAttribute="trailing" constant="16" id="sit-Ul-eum"/>
@@ -117,14 +117,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f8-uz-l9l" userLabel="Info Button">
-                                            <rect key="frame" x="550" y="11" width="22" height="22"/>
+                                            <rect key="frame" x="562" y="11" width="22" height="22"/>
                                         </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="0Z1-Q4-oCe" firstAttribute="centerY" secondItem="xRZ-qZ-O0X" secondAttribute="centerY" id="0gc-dL-JeJ"/>
                                         <constraint firstItem="XxA-BH-icZ" firstAttribute="leading" secondItem="0Z1-Q4-oCe" secondAttribute="trailing" constant="16" id="GVw-R5-eEQ"/>
                                         <constraint firstItem="XxA-BH-icZ" firstAttribute="centerY" secondItem="0Z1-Q4-oCe" secondAttribute="centerY" id="Pxy-wd-fC7"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="2f8-uz-l9l" secondAttribute="trailing" constant="20" id="XjL-ZH-LLg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="2f8-uz-l9l" secondAttribute="trailing" constant="8" id="XjL-ZH-LLg"/>
                                         <constraint firstItem="2f8-uz-l9l" firstAttribute="centerY" secondItem="0Z1-Q4-oCe" secondAttribute="centerY" id="gab-Er-psa"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="0Z1-Q4-oCe" secondAttribute="leading" id="vXT-eS-K4j"/>
                                     </constraints>
@@ -149,7 +149,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wIz-YY-0hA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8tm-NP-Ye6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1604" y="390"/>
+            <point key="canvasLocation" x="1473" y="404"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="d0r-GI-g8A">
