@@ -8,8 +8,9 @@
 
 @implementation IGGridViewSortingHeaderCell
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithReuseIdentifier:(NSString *)identifier {
+    
+    self = [super initWithReuseIdentifier:identifier];
     
     if (self) {
         UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sortHeaderTapped:)];
@@ -19,6 +20,14 @@
         [self addSubview:self.sortIndicator];
     }
     return self;
+    
+}
+
+- (void)applyTheme:(TDAGridViewTheme *)theme {
+    
+    
+    self.backgroundColor = [theme headerCellBackgroundColor];
+    self.textLabel.textColor = [theme headerCellTextColor];
 }
 
 - (void)setSortDirection:(IGGridViewSortedColumnDirection)direction {

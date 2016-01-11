@@ -3,37 +3,42 @@
 
 @implementation IGGridViewSortingDataSourceHelper
 
-//- (IGGridViewHeaderCell *)gridView:(IGGridView *)gridView fixedLeftHeaderCellAt:(NSInteger)column {
-//    IGGridViewSortingHeaderCell *sortingFixedHeaderCell = [gridView dequeueReusableCellWithIdentifier:@"SortFixedHeadeCell"];
-//    
-//    if (!sortingFixedHeaderCell) {
-//        sortingFixedHeaderCell = [[IGGridViewSortingHeaderCell alloc] initWithReuseIdentifier:@"SortFixedHeadeCell"];
-//        sortingFixedHeaderCell.delegate = self;
-//    }
-//    
-//    sortingFixedHeaderCell.textLabel.text = [self gridView:gridView titleForHeaderInFixedLeftColumn:column];
-//    
-//    IGGridViewColumnDefinition *col = self.fixedLeftColumns[column];
-//    IGGridViewSortedColumn *sc = (self.sortedColumns.count == 0) ? nil : self.sortedColumns[0];
-//    
-//    if([sc.fieldName isEqualToString:col.fieldKey]) {
-//        [sortingFixedHeaderCell setSortDirection:sc.sortDirection];
-//    } else {
-//        [sortingFixedHeaderCell setSortDirection:IGGridViewSortedColumnDirectionNone];
-//    }
-//    
-//    return sortingFixedHeaderCell;
-//}
+
+-(IGGridViewHeaderCell *)gridView:(IGGridView *)gridView fixedLeftHeaderCellAt:(NSInteger)column {
+    IGGridViewSortingHeaderCell *sortingHeaderCell = [gridView dequeueReusableCellWithIdentifier:@"SymbolHeadeCell"];
+    
+    if (!sortingHeaderCell) {
+        sortingHeaderCell = [[IGGridViewSortingHeaderCell alloc] initWithReuseIdentifier:@"SymbolHeadeCell"];
+        sortingHeaderCell.delegate = self;
+        [sortingHeaderCell applyTheme:gridView.theme];
+    }
+    
+    sortingHeaderCell.textLabel.text = [[self gridView:gridView titleForHeaderInFixedLeftColumn:column] uppercaseString];
+    
+    IGGridViewColumnDefinition *col = self.fixedLeftColumns[column];
+    IGGridViewSortedColumn *sc = (self.sortedColumns.count == 0) ? nil : self.sortedColumns[0];
+    
+    if([sc.fieldName isEqualToString:col.fieldKey]) {
+        [sortingHeaderCell setSortDirection:sc.sortDirection];
+    } else {
+        [sortingHeaderCell setSortDirection:IGGridViewSortedColumnDirectionNone];
+    }
+    
+    return sortingHeaderCell;
+
+}
+
 
 - (IGGridViewHeaderCell *)gridView:(IGGridView *)gridView headerCellAt:(NSInteger)column {
     IGGridViewSortingHeaderCell *sortingHeaderCell = [gridView dequeueReusableCellWithIdentifier:@"SortHeadeCell"];
     
     if (!sortingHeaderCell) {
         sortingHeaderCell = [[IGGridViewSortingHeaderCell alloc] initWithReuseIdentifier:@"SortHeadeCell"];
-        sortingHeaderCell.delegate = self;
+        sortingHeaderCell.delegate = self;        
+        [sortingHeaderCell applyTheme:gridView.theme];
     }
 
-    sortingHeaderCell.textLabel.text = [self gridView:gridView titleForHeaderInColumn:column];
+    sortingHeaderCell.textLabel.text = [[self gridView:gridView titleForHeaderInColumn:column] uppercaseString];
 
     IGGridViewColumnDefinition *col = self.columns[column];
     IGGridViewSortedColumn *sc = (self.sortedColumns.count == 0) ? nil : self.sortedColumns[0];

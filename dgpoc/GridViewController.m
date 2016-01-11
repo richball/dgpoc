@@ -17,7 +17,6 @@ static const NSUInteger kCurrencyCellWidth = 90;
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) NSMutableArray *nonVisibleColumns;
 @property (nonatomic, strong) TDAGridViewTheme *tdaTheme;
-@property (nonatomic, strong) IGGridViewLightTheme *lightTheme;
 
 @end
 
@@ -80,11 +79,18 @@ static const NSUInteger kCurrencyCellWidth = 90;
 #pragma mark - Private
 
 - (void)configureChartAndDataSource {
+    self.tdaTheme = [[TDAGridViewTheme alloc] init];
+    
+    self.gridView.rowSeparatorHeight = 1.f;
+    self.gridView.headerBackgroundColor = [UIColor lightGrayColor];
+    self.gridView.selectionType = IGGridViewSelectionTypeNone;
+    self.gridView.rowHeight = 50;
+    self.gridView.theme = self.tdaTheme;
+    self.gridView.delegate = self;
+    
     self.ds = [[IGGridViewSortingDataSourceHelper alloc] init];
     self.data = [QuoteItemDataMaker quoteItemsFromCannedData];
     self.nonVisibleColumns = [self createAllColumnDefinitions];
-    self.tdaTheme = [[TDAGridViewTheme alloc] init];
-    self.lightTheme = [[IGGridViewLightTheme alloc] init];
 
     NSArray *defaultColumnsHeaderKeys = @[@"lastTrade", @"bid", @"ask", @"open", @"daysHigh", @"daysLow"];
     NSArray *defaultColumns = [self columnsWithHeaderKeys:defaultColumnsHeaderKeys];
@@ -94,13 +100,6 @@ static const NSUInteger kCurrencyCellWidth = 90;
     self.ds.allowColumnReordering = YES;
     self.ds.data = self.data;
     
-    self.gridView.rowSeparatorHeight = 1.f;
-    self.gridView.headerBackgroundColor = [UIColor lightGrayColor];
-    self.gridView.selectionType = IGGridViewSelectionTypeNone;
-    self.gridView.rowHeight = 50;
-    self.gridView.theme = self.lightTheme;
-
-    self.gridView.delegate = self;
     self.gridView.dataSource = self.ds;
 }
 
