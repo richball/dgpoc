@@ -1,5 +1,6 @@
 #import "IGGridViewSortingDataSourceHelper.h"
 #import "IGGridViewSortingHeaderCell.h"
+#import "IGGridViewColumnDefinition+Sort.h"
 
 @implementation IGGridViewSortingDataSourceHelper
 
@@ -19,7 +20,7 @@
     IGGridViewColumnDefinition *col = self.fixedLeftColumns[column];
     IGGridViewSortedColumn *sc = (self.sortedColumns.count == 0) ? nil : self.sortedColumns[0];
     
-    if([sc.fieldName isEqualToString:col.fieldKey]) {
+    if([sc.fieldName isEqualToString:col.sortFieldKey]) {
         [sortingHeaderCell setSortDirection:sc.sortDirection];
     } else {
         [sortingHeaderCell setSortDirection:IGGridViewSortedColumnDirectionNone];
@@ -44,7 +45,7 @@
     IGGridViewColumnDefinition *col = self.columns[column];
     IGGridViewSortedColumn *sc = (self.sortedColumns.count == 0) ? nil : self.sortedColumns[0];
 
-    if([sc.fieldName isEqualToString:col.fieldKey]) {
+    if([sc.fieldName isEqualToString:col.sortFieldKey]) {
         [sortingHeaderCell setSortDirection:sc.sortDirection];
     } else {
         [sortingHeaderCell setSortDirection:IGGridViewSortedColumnDirectionNone];
@@ -64,7 +65,7 @@
         
         sc = self.sortedColumns[0];
         [self.sortedColumns removeAllObjects];
-        if ([sc.fieldName isEqualToString:col.fieldKey]) {
+        if ([sc.fieldName isEqualToString:col.sortFieldKey]) {
             if(sc.sortDirection == IGGridViewSortedColumnDirectionAscending) {
                 sc.sortDirection = IGGridViewSortedColumnDirectionDescending;
             } else if(sc.sortDirection == IGGridViewSortedColumnDirectionDescending) {
@@ -73,10 +74,10 @@
                 sc.sortDirection = IGGridViewSortedColumnDirectionAscending;
             }
         } else {
-            sc = [[IGGridViewSortedColumn alloc] initWithField:col.fieldKey forDirection:IGGridViewSortedColumnDirectionAscending];
+            sc = [[IGGridViewSortedColumn alloc] initWithField:col.sortFieldKey forDirection:IGGridViewSortedColumnDirectionAscending];
         }
     } else {
-        sc = [[IGGridViewSortedColumn alloc] initWithField:col.fieldKey forDirection:IGGridViewSortedColumnDirectionAscending];
+        sc = [[IGGridViewSortedColumn alloc] initWithField:col.sortFieldKey forDirection:IGGridViewSortedColumnDirectionAscending];
     }
     
     [self.sortedColumns addObject:sc];

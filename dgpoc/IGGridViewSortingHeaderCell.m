@@ -23,8 +23,8 @@
     
 }
 
+
 - (void)applyTheme:(TDAGridViewTheme *)theme {
-    
     
     self.backgroundColor = [theme headerCellBackgroundColor];
     self.textLabel.textColor = [theme headerCellTextColor];

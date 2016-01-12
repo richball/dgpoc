@@ -8,6 +8,7 @@
 #import "IGGridViewSortingDataSourceHelper.h"
 #import "IGGridViewSymbolColumnDefinition.h"
 #import "IGGridViewCurrencyColumnDefinition.h"
+#import "IGGridViewColumnDefinition+Sort.h"
 
 static const NSUInteger kDecimalCellWidth = 80;
 static const NSUInteger kCurrencyCellWidth = 90;
@@ -31,6 +32,7 @@ static const NSUInteger kCurrencyCellWidth = 90;
     [self configureChartAndDataSource];
     
     IGGridViewSymbolColumnDefinition *symDef = [[IGGridViewSymbolColumnDefinition alloc] initWithKey:@"symbol"];
+    symDef.sortFieldKey = @"symbolSort";
     symDef.headerText = @"Symbol";
     symDef.backgroundColor = [UIColor whiteColor];
     symDef.width = [[IGColumnWidth alloc] initWithWidth:100];
@@ -41,7 +43,9 @@ static const NSUInteger kCurrencyCellWidth = 90;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.gridView updateData];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(doTimerStuff:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(doTimerStuff:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -52,7 +56,7 @@ static const NSUInteger kCurrencyCellWidth = 90;
     for (QuoteItem *item in self.ds.data) {
         //if([item.symbol isEqualToString:@"SWHC"]) {
         //}
-        item.lastTrade = [NSNumber numberWithDouble:item.lastTrade.doubleValue + 0.1];
+        item.lastTrade = [NSNumber numberWithDouble:item.lastTrade.doubleValue + 0.01];
         item.bid = [NSNumber numberWithDouble:item.bid.doubleValue + 0.01];
         item.ask = [NSNumber numberWithDouble:item.ask.doubleValue + 0.01];
     }

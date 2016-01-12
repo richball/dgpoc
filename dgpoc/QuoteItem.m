@@ -3,4 +3,8 @@
 
 @implementation QuoteItem
 
+- (NSString *)symbolSort {
+    return _symbolSort;
+}
+
 @end

@@ -20,6 +20,7 @@
 		D955FC151C3C2C37000409FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D955FC141C3C2C37000409FD /* Assets.xcassets */; };
 		D955FC181C3C2C37000409FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D955FC161C3C2C37000409FD /* LaunchScreen.storyboard */; };
 		D955FC231C3C2C37000409FD /* dgpocTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D955FC221C3C2C37000409FD /* dgpocTests.m */; };
+		D97274BB1C45B0E200A105A7 /* IGGridViewColumnDefinition+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = D97274BA1C45B0E200A105A7 /* IGGridViewColumnDefinition+Sort.m */; };
 		D9B7623A1C3C487B00D6ED12 /* IG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B762391C3C487B00D6ED12 /* IG.framework */; };
 		D9B762451C3C68B500D6ED12 /* QuoteItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B762441C3C68B500D6ED12 /* QuoteItem.m */; };
 		D9B762481C3C6B5900D6ED12 /* QuoteItemDataMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B762471C3C6B5900D6ED12 /* QuoteItemDataMaker.m */; };
@@ -68,6 +69,8 @@
 		D955FC1E1C3C2C37000409FD /* dgpocTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dgpocTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D955FC221C3C2C37000409FD /* dgpocTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dgpocTests.m; sourceTree = "<group>"; };
 		D955FC241C3C2C37000409FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D97274B91C45B0E200A105A7 /* IGGridViewColumnDefinition+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IGGridViewColumnDefinition+Sort.h"; sourceTree = "<group>"; };
+		D97274BA1C45B0E200A105A7 /* IGGridViewColumnDefinition+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IGGridViewColumnDefinition+Sort.m"; sourceTree = "<group>"; };
 		D9B762391C3C487B00D6ED12 /* IG.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IG.framework; path = frameworks/IG.framework; sourceTree = "<group>"; };
 		D9B762431C3C68B500D6ED12 /* QuoteItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteItem.h; sourceTree = "<group>"; };
 		D9B762441C3C68B500D6ED12 /* QuoteItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteItem.m; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 				434CDF9C1C3FFF46007F12E2 /* IGGridViewSortingDataSourceHelper.m */,
 				4368A87B1C401D9D008FB4F0 /* TDAGridViewTheme.h */,
 				4368A87C1C401D9D008FB4F0 /* TDAGridViewTheme.m */,
+				D97274B91C45B0E200A105A7 /* IGGridViewColumnDefinition+Sort.h */,
+				D97274BA1C45B0E200A105A7 /* IGGridViewColumnDefinition+Sort.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				TargetAttributes = {
 					D955FC011C3C2C37000409FD = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = YU4H46ZK2C;
 					};
 					D955FC1D1C3C2C37000409FD = {
 						CreatedOnToolsVersion = 7.2;
@@ -330,6 +336,7 @@
 				431BFC7D1C3DB8590008F85D /* UIColor+TDA.m in Sources */,
 				D9B762451C3C68B500D6ED12 /* QuoteItem.m in Sources */,
 				D955FC0A1C3C2C37000409FD /* AppDelegate.m in Sources */,
+				D97274BB1C45B0E200A105A7 /* IGGridViewColumnDefinition+Sort.m in Sources */,
 				D9E5461E1C3D780C0037F119 /* SymbolCell.m in Sources */,
 				431BFC801C3DBDB50008F85D /* GridColumnsTableViewController.m in Sources */,
 				D9E546251C3D79010037F119 /* IGGridViewCurrencyColumnDefinition.m in Sources */,
@@ -473,7 +480,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tdameritrade.dgpoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e39350af-7af2-476f-8e80-26cd6679b33b";
 			};
 			name = Debug;
 		};
@@ -481,12 +487,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "frameworks/**";
 				INFOPLIST_FILE = dgpoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tdameritrade.dgpoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e39350af-7af2-476f-8e80-26cd6679b33b";
 			};
 			name = Release;
 		};
