@@ -50,7 +50,11 @@ static const NSUInteger kCurrencyCellWidth = 90;
 
 - (void)doTimerStuff:(NSTimer *)timer {
     for (QuoteItem *item in self.ds.data) {
+        //if([item.symbol isEqualToString:@"SWHC"]) {
+        //}
         item.lastTrade = [NSNumber numberWithDouble:item.lastTrade.doubleValue + 0.1];
+        item.bid = [NSNumber numberWithDouble:item.bid.doubleValue + 0.01];
+        item.ask = [NSNumber numberWithDouble:item.ask.doubleValue + 0.01];
     }
     [self.gridView updateData];
 }
