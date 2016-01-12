@@ -17,6 +17,7 @@ static const NSUInteger kCurrencyCellWidth = 90;
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) NSMutableArray *nonVisibleColumns;
 @property (nonatomic, strong) TDAGridViewTheme *tdaTheme;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -39,6 +40,18 @@ static const NSUInteger kCurrencyCellWidth = 90;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.gridView updateData];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(doTimerStuff:) userInfo:nil repeats:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.timer invalidate];
+}
+
+- (void)doTimerStuff:(NSTimer *)timer {
+    for (QuoteItem *item in self.ds.data) {
+        item.lastTrade = [NSNumber numberWithDouble:item.lastTrade.doubleValue + 0.1];
+    }
     [self.gridView updateData];
 }
 
@@ -107,7 +120,7 @@ static const NSUInteger kCurrencyCellWidth = 90;
     [self.ds.columnDefinitions addObjectsFromArray:defaultColumns];
 
     self.ds.autoGenerateColumns = NO;
-    self.ds.allowColumnReordering = YES;
+    self.ds.allowColumnReordering = NO;
     self.ds.data = self.data;
     
     self.gridView.dataSource = self.ds;

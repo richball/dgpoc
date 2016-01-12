@@ -29,7 +29,6 @@
 
 }
 
-
 - (IGGridViewHeaderCell *)gridView:(IGGridView *)gridView headerCellAt:(NSInteger)column {
     IGGridViewSortingHeaderCell *sortingHeaderCell = [gridView dequeueReusableCellWithIdentifier:@"SortHeadeCell"];
     
