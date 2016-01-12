@@ -57,6 +57,16 @@ static const NSUInteger kCurrencyCellWidth = 90;
     [self.gridView deleteColumnsAtIndexes: columnIndexesToDelete];
     
     [self.ds insertColumns:editedColumns atIndex:0];
+    
+    [self.ds.columnDefinitions removeAllObjects];
+    [self.ds.columnDefinitions addObjectsFromArray:editedColumns];
+}
+
+- (void)gridView:(IGGridView *)gridView columnMovedAtIndex:(NSInteger)sourceIndex toIndex:(NSInteger)destinationIndex {
+    IGGridViewColumnDefinition *column = self.ds.columnDefinitions[sourceIndex];
+    [self.ds.columnDefinitions removeObjectAtIndex:sourceIndex];
+    [self.ds.columnDefinitions insertObject:column atIndex:destinationIndex];
+    // TODO save columns
 }
 
 

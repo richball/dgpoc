@@ -41,7 +41,7 @@
 }
 
 - (void)sortHeaderTapped:(UITapGestureRecognizer *)sender {
-    [self.delegate gridView:self.gridView toggleColumnSorting:self.path.columnIndex];
+    [self.delegate gridView:self.gridView toggleColumnSorting:self.path.columnIndex fixedColumn:self.fixed];
 }
 
 @end

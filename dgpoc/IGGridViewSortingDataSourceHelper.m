@@ -10,6 +10,7 @@
     if (!sortingHeaderCell) {
         sortingHeaderCell = [[IGGridViewSortingHeaderCell alloc] initWithReuseIdentifier:@"SymbolHeadeCell"];
         sortingHeaderCell.delegate = self;
+        sortingHeaderCell.fixed = YES;
         [sortingHeaderCell applyTheme:gridView.theme];
     }
     
@@ -34,7 +35,8 @@
     
     if (!sortingHeaderCell) {
         sortingHeaderCell = [[IGGridViewSortingHeaderCell alloc] initWithReuseIdentifier:@"SortHeadeCell"];
-        sortingHeaderCell.delegate = self;        
+        sortingHeaderCell.delegate = self;
+        sortingHeaderCell.fixed = NO;
         [sortingHeaderCell applyTheme:gridView.theme];
     }
 
@@ -54,8 +56,8 @@
 
 #pragma mark - <IGGridViewSortingDelegate>
 
-- (void)gridView:(IGGridView *)gridView toggleColumnSorting:(NSInteger)columnIndex {
-    IGGridViewColumnDefinition* col = self.columns[columnIndex];
+- (void)gridView:(IGGridView *)gridView toggleColumnSorting:(NSInteger)columnIndex fixedColumn:(BOOL)fixed {
+    IGGridViewColumnDefinition* col = fixed ? self.fixedLeftColumns[columnIndex] : self.columns[columnIndex];
     
     IGGridViewSortedColumn* sc = nil;
     
@@ -66,6 +68,8 @@
         if ([sc.fieldName isEqualToString:col.fieldKey]) {
             if(sc.sortDirection == IGGridViewSortedColumnDirectionAscending) {
                 sc.sortDirection = IGGridViewSortedColumnDirectionDescending;
+            } else if(sc.sortDirection == IGGridViewSortedColumnDirectionDescending) {
+                sc.sortDirection = IGGridViewSortedColumnDirectionNone;
             } else {
                 sc.sortDirection = IGGridViewSortedColumnDirectionAscending;
             }
