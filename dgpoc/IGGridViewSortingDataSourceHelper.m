@@ -58,32 +58,47 @@
 
 - (void)gridView:(IGGridView *)gridView toggleColumnSorting:(NSInteger)columnIndex fixedColumn:(BOOL)fixed {
     IGGridViewColumnDefinition* col = fixed ? self.fixedLeftColumns[columnIndex] : self.columns[columnIndex];
-    
     IGGridViewSortedColumn* sc = nil;
-    
+    IGGridViewSortedColumnDirection direction = IGGridViewSortedColumnDirectionAscending;
+
     if(self.sortedColumns.count > 0) {
-        
         sc = self.sortedColumns[0];
         [self.sortedColumns removeAllObjects];
-        if ([sc.fieldName isEqualToString:col.sortFieldKey]) {
-            if(sc.sortDirection == IGGridViewSortedColumnDirectionAscending) {
-                sc.sortDirection = IGGridViewSortedColumnDirectionDescending;
-            } else if(sc.sortDirection == IGGridViewSortedColumnDirectionDescending) {
-                sc.sortDirection = IGGridViewSortedColumnDirectionNone;
-            } else {
-                sc.sortDirection = IGGridViewSortedColumnDirectionAscending;
-            }
-        } else {
-            sc = [[IGGridViewSortedColumn alloc] initWithField:col.sortFieldKey forDirection:IGGridViewSortedColumnDirectionAscending];
-        }
-    } else {
-        sc = [[IGGridViewSortedColumn alloc] initWithField:col.sortFieldKey forDirection:IGGridViewSortedColumnDirectionAscending];
+        direction = [self getNextDirection:sc sortFieldPrefix:col.sortFieldKey];
     }
+    
+    sc = [self createSortedColumn:col direction:direction];
     
     [self.sortedColumns addObject:sc];
     [self invalidateData];
     
     [gridView updateData];
+}
+
+- (IGGridViewSortedColumnDirection)getNextDirection:(IGGridViewSortedColumn *) column
+                                    sortFieldPrefix:(NSString *)sortFieldPrefix {
+    IGGridViewSortedColumnDirection direction = column.sortDirection;
+    if ([column.fieldName hasPrefix:sortFieldPrefix]) {
+        if(direction == IGGridViewSortedColumnDirectionAscending) {
+            direction = IGGridViewSortedColumnDirectionDescending;
+        } else if(direction == IGGridViewSortedColumnDirectionDescending) {
+            direction = IGGridViewSortedColumnDirectionNone;
+        } else {
+            direction = IGGridViewSortedColumnDirectionAscending;
+        }
+    }
+    return direction;
+}
+
+- (IGGridViewSortedColumn *)createSortedColumn:(IGGridViewColumnDefinition *)column
+                                     direction:(IGGridViewSortedColumnDirection)direction {
+    NSString* field = column.sortFieldKey;
+    if(direction == IGGridViewSortedColumnDirectionAscending && column.sortFieldKeyAscending) {
+        field = column.sortFieldKeyAscending;
+    } else if(direction == IGGridViewSortedColumnDirectionDescending && column.sortFieldKeyDescending) {
+        field = column.sortFieldKeyDescending;
+    }
+    return [[IGGridViewSortedColumn alloc] initWithField:field forDirection:direction];
 }
 
 @end

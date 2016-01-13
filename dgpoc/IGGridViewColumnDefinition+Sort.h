@@ -11,5 +11,7 @@
 @interface IGGridViewColumnDefinition (Sort)
 
 @property (nonatomic, strong) NSString *sortFieldKey;
+@property (nonatomic, strong) NSString *sortFieldKeyAscending;
+@property (nonatomic, strong) NSString *sortFieldKeyDescending;
 
 @end

@@ -33,6 +33,8 @@ static const NSUInteger kCurrencyCellWidth = 90;
     
     IGGridViewSymbolColumnDefinition *symDef = [[IGGridViewSymbolColumnDefinition alloc] initWithKey:@"symbol"];
     symDef.sortFieldKey = @"symbolSort";
+    symDef.sortFieldKeyAscending = @"symbolSortAscending";
+    symDef.sortFieldKeyDescending = @"symbolSortDescending";
     symDef.headerText = @"Symbol";
     symDef.backgroundColor = [UIColor whiteColor];
     symDef.width = [[IGColumnWidth alloc] initWithWidth:100];
@@ -43,8 +45,8 @@ static const NSUInteger kCurrencyCellWidth = 90;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.gridView updateData];
-    self.timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(doTimerStuff2:) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+//    self.timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(doTimerStuff2:) userInfo:nil repeats:YES];
+//    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 
 }
 

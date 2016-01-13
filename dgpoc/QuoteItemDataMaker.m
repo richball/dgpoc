@@ -17,30 +17,33 @@
     
     for (NSString *row in rows) {
         q = [[QuoteItem alloc] init];
+        int i = 0;
 
         NSArray *c = [row componentsSeparatedByString:@","];
-        q.symbol = c[0];
-        q.symbolName = c[1];
-        q.lastTrade = [NSNumber numberWithDouble:[c[2] doubleValue]];
-        q.lastTradeDate = c[3];
-        q.lastTradeTime = c[4];
-        q.changePercentChange = [NSNumber numberWithDouble:[c[5]  doubleValue]];
-        q.change = [NSNumber numberWithDouble:[c[6] doubleValue]];
-        q.open = [NSNumber numberWithDouble:[c[7] doubleValue]];
-        q.daysHigh = [NSNumber numberWithDouble:[c[8] doubleValue]];
-        q.daysLow = [NSNumber numberWithDouble:[c[9] doubleValue]];
-        q.volume = [NSNumber numberWithDouble:[c[10] doubleValue]];
-        q.ask = [NSNumber numberWithDouble:[c[11] doubleValue]];
-        q.averageDailyVolume = [NSNumber numberWithDouble:[c[12] doubleValue]];
-        q.askSize = [NSNumber numberWithDouble:[c[13] doubleValue]];
-        q.FiftyTwoWeekHigh = [NSNumber numberWithDouble:[c[14] doubleValue]];
-        q.changeFrom52weekHigh = [NSNumber numberWithDouble:[c[15] doubleValue]];
-        q.percentChangeFrom52weeklow = [NSNumber numberWithDouble:[c[16] doubleValue]];
-        q.FiftyTwoWeekRange = c[17];
-        q.bid = [NSNumber numberWithDouble:[c[18] doubleValue]];
-        q.bidSize = [NSNumber numberWithDouble:[c[19] doubleValue]];
-        q.FiftyDayMovingAverage = [NSNumber numberWithDouble:[c[20] doubleValue]];
-        q.earningsShare = [NSNumber numberWithDouble:[c[21] doubleValue]];
+        q.assetType = c[i++];
+        q.symbol = c[i++];
+        q.symbolName = c[i++];
+        q.underlyingSymbol = c[i++];
+        q.lastTrade = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.lastTradeDate = c[i++];
+        q.lastTradeTime = c[i++];
+        q.changePercentChange = [NSNumber numberWithDouble:[c[i++]  doubleValue]];
+        q.change = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.open = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.daysHigh = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.daysLow = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.volume = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.ask = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.averageDailyVolume = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.askSize = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.FiftyTwoWeekHigh = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.changeFrom52weekHigh = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.percentChangeFrom52weeklow = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.FiftyTwoWeekRange = c[i++];
+        q.bid = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.bidSize = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.FiftyDayMovingAverage = [NSNumber numberWithDouble:[c[i++] doubleValue]];
+        q.earningsShare = [NSNumber numberWithDouble:[c[i++] doubleValue]];
         
         [dataList addObject:q];
     }
