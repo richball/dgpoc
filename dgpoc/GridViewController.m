@@ -101,11 +101,21 @@ static const NSUInteger kCurrencyCellWidth = 90;
     [self.ds.columnDefinitions addObjectsFromArray:editedColumns];
 }
 
+#pragma mark - GridView Delegate
+
 - (void)gridView:(IGGridView *)gridView columnMovedAtIndex:(NSInteger)sourceIndex toIndex:(NSInteger)destinationIndex {
     IGGridViewColumnDefinition *column = self.ds.columnDefinitions[sourceIndex];
     [self.ds.columnDefinitions removeObjectAtIndex:sourceIndex];
     [self.ds.columnDefinitions insertObject:column atIndex:destinationIndex];
     // TODO save columns
+}
+
+- (CGFloat)gridView:(IGGridView *)gridView heightForRowAtPath:(IGRowPath *)path {
+    QuoteItem *item = [self.ds resolveDataObjectForRow:path];
+    if ([item.assetType isEqualToString:@"O"]) {
+        return 80;
+    }
+    return gridView.rowHeight;
 }
 
 
