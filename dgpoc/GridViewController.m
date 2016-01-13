@@ -43,7 +43,7 @@ static const NSUInteger kCurrencyCellWidth = 90;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.gridView updateData];
-    self.timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(doTimerStuff:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(doTimerStuff:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 
 }
@@ -61,6 +61,22 @@ static const NSUInteger kCurrencyCellWidth = 90;
         item.ask = [NSNumber numberWithDouble:item.ask.doubleValue + 0.01];
     }
     [self.gridView updateData];
+}
+
+- (void)doTimerStuff2:(NSTimer *)timer {
+
+    int index;
+    for (int i=0; i<arc4random_uniform(15); i++) {
+        index = arc4random_uniform( (unsigned int)[self.data count]);
+        [self updateQuoteItem:self.ds.data[index]];
+    }
+   [self.gridView updateData];
+}
+
+- (void)updateQuoteItem:(QuoteItem*)item {
+    item.lastTrade = [NSNumber numberWithDouble:item.lastTrade.doubleValue + 0.01];
+    item.bid = [NSNumber numberWithDouble:item.bid.doubleValue + 0.01];
+    item.ask = [NSNumber numberWithDouble:item.ask.doubleValue + 0.01];
 }
 
 - (void)gridEditColumnsControllerReturnedColumns:(NSArray *)editedColumns {
