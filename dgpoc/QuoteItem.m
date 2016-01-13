@@ -4,7 +4,7 @@
 @implementation QuoteItem
 
 - (NSString *)symbolSort {
-    return _symbolSort;
+    return _symbol;
 }
 
 @end

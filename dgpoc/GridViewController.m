@@ -43,7 +43,7 @@ static const NSUInteger kCurrencyCellWidth = 90;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.gridView updateData];
-    self.timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(doTimerStuff:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(doTimerStuff2:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 
 }
@@ -66,7 +66,7 @@ static const NSUInteger kCurrencyCellWidth = 90;
 - (void)doTimerStuff2:(NSTimer *)timer {
 
     int index;
-    for (int i=0; i<arc4random_uniform(15); i++) {
+    for (int i=0; i<arc4random_uniform(50); i++) {
         index = arc4random_uniform( (unsigned int)[self.data count]);
         [self updateQuoteItem:self.ds.data[index]];
     }

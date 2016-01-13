@@ -25,8 +25,8 @@
     return NSTextAlignmentLeft;
 }
 
-- (CGFloat)headerHeight {
-    return 30;
-}
+//- (CGFloat)headerHeight {
+//    return 35;
+//}
 
 @end
