@@ -70,6 +70,12 @@
     sc = [self createSortedColumn:col direction:direction];
     
     [self.sortedColumns addObject:sc];
+    
+    if (![sc.fieldName hasPrefix:@"symbolSort"]) {
+        IGGridViewSortedColumn *secondary = [[IGGridViewSortedColumn alloc] initWithField:@"symbolSortAscending" forDirection:IGGridViewSortedColumnDirectionAscending];
+        [self.sortedColumns addObject:secondary];
+    }
+        
     [self invalidateData];
     
     [gridView updateData];
